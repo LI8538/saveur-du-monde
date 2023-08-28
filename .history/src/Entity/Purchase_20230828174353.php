@@ -34,4 +34,5 @@ class Purchase
 
         return $this;
     }
+
 }
