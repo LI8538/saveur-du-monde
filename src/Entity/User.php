@@ -52,8 +52,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Purchase::class, orphanRemoval: true)]
     private Collection $purchase;
 
+
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
+
 
     public function __construct()
     {
@@ -232,12 +234,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function isVerified(): bool
+    public function isIsVerified(): ?bool
+
     {
         return $this->isVerified;
     }
 
-    public function setIsVerified(bool $isVerified): static
+    public function setIsVerified(?bool $isVerified): static
     {
         $this->isVerified = $isVerified;
 
