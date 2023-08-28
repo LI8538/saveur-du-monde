@@ -16,8 +16,6 @@ security:
         ROLE_MANAGER: ['ROLE_USER']
         ROLE_USER: ['ROLE_USER']
 
-
-
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
