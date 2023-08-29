@@ -101,5 +101,7 @@ class AppFixtures extends Fixture
             $manager->persist($publications);
         }
 
+        $manager->flush();
+
     }
 }
