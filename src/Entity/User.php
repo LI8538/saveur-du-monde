@@ -49,6 +49,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(nullable: true)]
     private ?bool $isVerified = false;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Purchase::class)]
+    private Collection $y;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Publication::class)]
+    private Collection $publications;
+
+    public function __construct()
+    {
+        $this->y = new ArrayCollection();
+        $this->publications = new ArrayCollection();
+    }
+
 
   
 
@@ -191,6 +203,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(?bool $isVerified): static
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Purchase>
+     */
+    public function getY(): Collection
+    {
+        return $this->y;
+    }
+
+    public function addY(Purchase $y): static
+    {
+        if (!$this->y->contains($y)) {
+            $this->y->add($y);
+            $y->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeY(Purchase $y): static
+    {
+        if ($this->y->removeElement($y)) {
+            // set the owning side to null (unless already changed)
+            if ($y->getUser() === $this) {
+                $y->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Publication>
+     */
+    public function getPublications(): Collection
+    {
+        return $this->publications;
+    }
+
+    public function addPublication(Publication $publication): static
+    {
+        if (!$this->publications->contains($publication)) {
+            $this->publications->add($publication);
+            $publication->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePublication(Publication $publication): static
+    {
+        if ($this->publications->removeElement($publication)) {
+            // set the owning side to null (unless already changed)
+            if ($publication->getUser() === $this) {
+                $publication->setUser(null);
+            }
+        }
 
         return $this;
     }
