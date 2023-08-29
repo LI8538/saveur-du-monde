@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20230828154431 extends AbstractMigration
+final class Version20230829085434 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,16 +20,14 @@ final class Version20230828154431 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE purchase DROP FOREIGN KEY FK_6117D13BA76ED395');
-        $this->addSql('DROP INDEX IDX_6117D13BA76ED395 ON purchase');
-        $this->addSql('ALTER TABLE purchase DROP user_id');
+        $this->addSql('DROP TABLE cat');
+        $this->addSql('ALTER TABLE reservation CHANGE message message LONGTEXT DEFAULT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE purchase ADD user_id INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE purchase ADD CONSTRAINT FK_6117D13BA76ED395 FOREIGN KEY (user_id) REFERENCES user (id)');
-        $this->addSql('CREATE INDEX IDX_6117D13BA76ED395 ON purchase (user_id)');
+        $this->addSql('CREATE TABLE cat (id INT AUTO_INCREMENT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB COMMENT = \'\' ');
+        $this->addSql('ALTER TABLE reservation CHANGE message message VARCHAR(255) DEFAULT NULL');
     }
 }
