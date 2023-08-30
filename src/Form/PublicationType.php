@@ -2,9 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\User;
 use App\Entity\Publication;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PublicationType extends AbstractType
@@ -16,7 +18,11 @@ class PublicationType extends AbstractType
             ->add('content')
             ->add('publishedAt')
             ->add('image')
-            ->add('user')
+            ->add('user', EntityType::class, [
+                'class' => User::class, // L'entité cible
+                'choice_label' => 'lastname', // La propriété à afficher dans les options de sélection
+                'label' => 'Author', // Label du champ
+            ])
         ;
     }
 

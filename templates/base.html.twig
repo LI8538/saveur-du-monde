@@ -19,8 +19,8 @@
 			<nav class="navbar navbar-expand-lg bg-body-tertiary ">
 				<div class="container-fluid">
 
-					<img src={{ asset('img/logo1.jpeg') }} width="100" alt="Logo Saveurs du Monde>
-					<a class=" navbar-brand me-auto ml-5 text-info" href=" #">Saveurs du Monde</a>
+					<a href="{{ path('app_home') }}"><img src={{ asset('img/logo1.jpeg') }} width="100" alt="Logo Saveurs du Monde"></a>
+					<a class=" navbar-brand me-auto ml-5 text-info" href="{{ path('app_home') }}">Saveurs du Monde</a>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -28,22 +28,22 @@
 				<div class="collapse navbar-collapse" id="navbarNavDropdown">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">Accueil</a>
+							<a class="nav-link active" aria-current="page" href="{{ path('app_home') }}">Accueil</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">A propos</a>
+							<a class="nav-link" href="{{ path('app_about') }}">A propos</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">Contact</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Abonnements</a>
+							<a class="nav-link" href="{{ path('app_subscription') }}">Abonnements</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Avis</a>
+							<a class="nav-link" href="{{ path('app_review_new') }}">Avis</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Publications</a>
+							<a class="nav-link" href="{{ path('app_publication_new') }}">Publications</a>
 						</li>
 
 						<li class="nav-item dropdown">
@@ -52,26 +52,26 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li>
-									<a class="dropdown-item" href="#">Bresil</a>
+									<a class="dropdown-item" href="{{ path('app_bresil') }}">Bresil</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">Cameroun</a>
+									<a class="dropdown-item" href="{{ path('app_cameroun') }}">Cameroun</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">Chine</a>
+									<a class="dropdown-item" href="{{ path('app_chine') }}">Chine</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">Ile Maurice</a>
+									<a class="dropdown-item" href="{{ path('app_ile_maurice') }}">Ile Maurice</a>
 								</li>
 							</ul>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">
+							<a class="nav-link" href="{{ path('app_panier') }}">
 								<i class="fa-solid fa-cart-shopping"></i>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">
+							<a class="nav-link" href="{{ path('app_login') }}">
 								<i class="fa-solid fa-user"></i>
 							</a>
 						</li>
