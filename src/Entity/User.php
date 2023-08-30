@@ -34,33 +34,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $firstname = null;
 
-    #[ORM\Column(length: 100, nullable: true)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $lastname = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $address = null;
 
-    #[ORM\Column(length: 100, nullable: true)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $city = null;
-
-    #[ORM\Column(length: 50, nullable: true)]
-    private ?string $country = null;
 
     #[ORM\Column(nullable: true)]
     private ?int $zipcode = null;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Purchase::class, orphanRemoval: true)]
-    private Collection $purchase;
+    #[ORM\Column(nullable: true)]
+    private ?bool $isVerified = false;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Purchase::class)]
+    private Collection $y;
 
-    #[ORM\Column(type: 'boolean')]
-    private $isVerified = false;
-
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Publication::class)]
+    private Collection $publications;
 
     public function __construct()
     {
-        $this->purchase = new ArrayCollection();
+        $this->y = new ArrayCollection();
+        $this->publications = new ArrayCollection();
     }
+
+
+  
 
     public function getId(): ?int
     {
@@ -149,7 +151,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->lastname;
     }
 
-    public function setLastname(string $lastname): static
+    public function setLastname(?string $lastname): static
     {
         $this->lastname = $lastname;
 
@@ -180,18 +182,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getCountry(): ?string
-    {
-        return $this->country;
-    }
-
-    public function setCountry(?string $country): static
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
     public function getZipcode(): ?int
     {
         return $this->zipcode;
@@ -200,36 +190,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setZipcode(?int $zipcode): static
     {
         $this->zipcode = $zipcode;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Purchase>
-     */
-    public function getPurchase(): Collection
-    {
-        return $this->purchase;
-    }
-
-    public function addPurchase(Purchase $purchase): static
-    {
-        if (!$this->purchase->contains($purchase)) {
-            $this->purchase->add($purchase);
-            $purchase->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removePurchase(Purchase $purchase): static
-    {
-        if ($this->purchase->removeElement($purchase)) {
-            // set the owning side to null (unless already changed)
-            if ($purchase->getUser() === $this) {
-                $purchase->setUser(null);
-            }
-        }
 
         return $this;
     }
@@ -243,6 +203,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(?bool $isVerified): static
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Purchase>
+     */
+    public function getY(): Collection
+    {
+        return $this->y;
+    }
+
+    public function addY(Purchase $y): static
+    {
+        if (!$this->y->contains($y)) {
+            $this->y->add($y);
+            $y->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeY(Purchase $y): static
+    {
+        if ($this->y->removeElement($y)) {
+            // set the owning side to null (unless already changed)
+            if ($y->getUser() === $this) {
+                $y->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Publication>
+     */
+    public function getPublications(): Collection
+    {
+        return $this->publications;
+    }
+
+    public function addPublication(Publication $publication): static
+    {
+        if (!$this->publications->contains($publication)) {
+            $this->publications->add($publication);
+            $publication->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePublication(Publication $publication): static
+    {
+        if ($this->publications->removeElement($publication)) {
+            // set the owning side to null (unless already changed)
+            if ($publication->getUser() === $this) {
+                $publication->setUser(null);
+            }
+        }
 
         return $this;
     }

@@ -17,6 +17,9 @@ class Purchase
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $datetime = null;
 
+    #[ORM\ManyToOne(inversedBy: 'y')]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -33,4 +36,17 @@ class Purchase
 
         return $this;
     }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+   
 }
