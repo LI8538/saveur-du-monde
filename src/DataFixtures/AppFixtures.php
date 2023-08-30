@@ -38,11 +38,6 @@ class AppFixtures extends Fixture
         // Enregistrement de l'utilisateur USER en base de données
         $manager->persist($user2);
 
-
-
-
-
-
         for ($i=0; $i < 20 ; $i++) { 
            $avis = new Review();
            $avis->setName($faker->name());
