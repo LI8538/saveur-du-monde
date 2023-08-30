@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "assets": "^3.0.1"
+    "assets": "^3.0.1",
+    "paginator": "^1.0.0"
   }
 }
