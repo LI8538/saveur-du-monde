@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Saveur Cameroun{% endblock %}
+{% block title %}Saveurs Cameroun{% endblock %}
 {% block body %}
 <style>
     /* .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
@@ -9,7 +9,47 @@
         text-align:center;
     }
 </style>
+
 <div>
- <h1>Saveur Cameroun</h1>
-</div>
+            <div>
+				<img class="bg" src={{ asset('img/background_cameroun_1200x600.jpg') }}>
+			</div>
+ <h1>Saveurs Cameroun</h1>
+
+	{# Section Les Entrées #}
+	<section class="d-flex flex-column align-items-center my-5">
+		<h2>
+			<span>M</span>enu</h2>
+		<p>Bon Appétit et surtout régalez vous!
+		</p>
+		<h2>Les Entrées</h2>
+		<div class="trait"></div>
+		<h2 class="mt-5">Entrées:</h2>
+
+		<div>
+			{# <div class="d-flex flex-wrap justify-content-center">
+				{% for item in reviews %}
+					{% set note = item.note %}
+					<div class="card m-3 " style="width: 18rem;">
+						<div class="card-body">
+							<h5 class="card-title">{{item.name }}</h5>
+
+							<p class="card-text">{{item.message}}</p>
+							<p>publie le :
+								{{ item.DatePublication|date('Y-m-d')}}</p>
+							<p>Avis client :
+								<br>
+								{% for star in 1..note %}
+									⭐
+								{% endfor %}
+							</p>
+						</div>
+					</div>
+				{% endfor %}
+			</div> #}
+			
+		</div>
+
+
+	</section>
 {% endblock %}
