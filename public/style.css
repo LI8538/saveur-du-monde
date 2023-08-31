@@ -1,0 +1,24 @@
+.text-center {
+    text-align: center;
+}
+
+.center-content {
+    text-align: center;
+}
+
+.btn-centered {
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-centered:hover {
+    background-color: #ff9900;
+    color: #fff;
+}
+
+.custom-input-size {
+    width: 50%; /* Ajustez cette valeur en fonction de la taille souhaitée */
+    margin: 0 auto; /* Pour centrer horizontalement les éléments */
+}
