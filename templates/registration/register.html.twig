@@ -17,17 +17,20 @@
         {{ form_start(registrationForm) }}
             <div class="text-center">
                 {{ form_row(registrationForm.email, {
-                    'attr': {'class': 'form-control text-center'}
-                }) }}
+                'attr': {'class': 'form-control text-center', 'style': 'width: 50vw; margin: 0 auto;'}
+                 }) }}
+
                 {{ form_row(registrationForm.plainPassword, {
                     'label': 'Password',
-                    'attr': {'class': 'form-control text-center'}
+                    'attr': {'class': 'form-control text-center','style': 'width: 50vw; margin: 0 auto;'}
                 }) }}
                 {{ form_row(registrationForm.agreeTerms, {
                     'label_attr': {'class': 'text-center'}
                 }) }}
 
-                <button type="submit" class="btn btn-primary btn-centered">Register</button>
+                 <div style="padding: 10px 0;">
+                    <button type="submit" class="btn-centered">Register</button>
+                </div>
             </div>
         {{ form_end(registrationForm) }}
     </div>
