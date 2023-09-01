@@ -6,10 +6,12 @@ use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 #[Route('/product')]
 class ProductController extends AbstractController
@@ -23,24 +25,82 @@ class ProductController extends AbstractController
     }
 
     #[Route('/new', name: 'app_product_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
-    {
+    // public function new(Request $request, EntityManagerInterface $entityManager): Response
+    // {
+    //     $product = new Product();
+    //     $form = $this->createForm(ProductType::class, $product);
+    //     $form->handleRequest($request);
+
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $entityManager->persist($product);
+    //         $entityManager->flush();
+
+    //         return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);
+    //     }
+
+    //     return $this->render('product/new.html.twig', [
+    //         'product' => $product,
+    //         'form' => $form,
+    //     ]);
+    
+
+     // SluggerInterface $slugger pour les affichage d'image
+     public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
+     {
         $product = new Product();
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
+ 
+         if ($form->isSubmitted() && $form->isValid()) {
+ 
+ // affichage d'image start
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($product);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('product/new.html.twig', [
+             $image = $form->get('image')->getData();
+ 
+             // Si une image a été uploadée
+             if ($image) {
+ 
+                 // 2 - Modifier le nom de l'image (nom unique)
+                 $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+ 
+                 // Transforme le nom de l'image en slug pour l'URL (minuscule, sans accent, sans espace, etc.)
+                 $safeFilename = $slugger->slug($originalFilename);
+ 
+                 // Reconstruit le nom de l'image avec un identifiant unique et son extension
+                 $newFilename = $safeFilename.'-'.uniqid().'.'.$image->guessExtension();
+ 
+                 // 3 - Enregistrer l'image dans son répertoire ('articles_images')
+                 try {
+                     $image->move(
+                         $this->getParameter('products_img'),
+                         $newFilename
+                     );
+                 } catch (FileException $e) {
+                     
+                 }
+ 
+                 // 4 - Ajouter le nom de l'image à l'objet en cours (setImage)
+                 $product->setImage($newFilename);
+             }
+ // affichage d'image end
+ 
+             $entityManager->persist($product);
+             $entityManager->flush();
+ 
+             return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);
+         }
+ 
+         return $this->render('product/new.html.twig', [
             'product' => $product,
-            'form' => $form,
-        ]);
+             'form' => $form,
+         ]);
+
     }
+
+
+
+
+
 
     #[Route('/{id}', name: 'app_product_show', methods: ['GET'])]
     public function show(Product $product): Response
