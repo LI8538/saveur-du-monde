@@ -1,9 +1,5 @@
-{# {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }} #}
 
-{{ form_start(form, {'attr': {'class': 'my-4'}}) }}
+{# {{ form_start(form, {'attr': {'class': 'my-4'}}) }}
 
 
 <div class="mb-3">
@@ -24,6 +20,31 @@
 <div class="mb-3">
 	{{ form_label(form.image, 'Image', {'label_attr': {'class': 'form-label'}}) }}
 	{{ form_widget(form.image, {'attr': {'class': 'form-control','style': 'width: 50vw; margin:0, auto;'}}) }}
+</div>
+
+<button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }} #}
+
+{{ form_start(form, {'attr': {'class': 'my-4 text-center'}}) }}
+
+<div class="mb-3">
+    {{ form_label(form.title, 'Title', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.title, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.content, 'Content', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.content, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.publishedAt, 'Published At', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.publishedAt, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.image, 'Image', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.image, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
 </div>
 
 <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
