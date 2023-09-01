@@ -1,4 +1,24 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form, {'attr': {'class': 'my-4 text-center'}}) }}
+
+<div class="mb-3">
+    {{ form_label(form.name, 'Name', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.name, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.message, 'Message', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.message, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.datePublication, 'Date de publication', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.datePublication, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.note, 'Note', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.note, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
+</div>
+
+<button class="btn-centered">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
