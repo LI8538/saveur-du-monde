@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class PublicationType extends AbstractType
 {
@@ -17,7 +18,13 @@ class PublicationType extends AbstractType
             ->add('title')
             ->add('content')
             ->add('publishedAt')
-            ->add('image')
+            ->add('image', FileType::class, [
+                'mapped' => false,
+                'label' => 'Titre de l\'article',
+                'attr' => [
+                'class' => 'form-control mb-3'
+                ]
+                ])       
             ->add('user', EntityType::class, [
                 'class' => User::class, // L'entité cible
                 'choice_label' => 'lastname', // La propriété à afficher dans les options de sélection
