@@ -30,7 +30,7 @@ class Product
     private ?string $description = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
-    private ?category $category = null;
+    private ?Category $category = null;
 
     public function getId(): ?int
     {
