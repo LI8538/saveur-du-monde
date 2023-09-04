@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PurchaseRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -19,6 +21,14 @@ class Purchase
 
     #[ORM\ManyToOne(inversedBy: 'y')]
     private ?User $user = null;
+
+    #[ORM\ManyToMany(targetEntity: Product::class, mappedBy: 'purchase')]
+    private Collection $y;
+
+    public function __construct()
+    {
+        $this->y = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -45,6 +55,33 @@ class Purchase
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Product>
+     */
+    public function getY(): Collection
+    {
+        return $this->y;
+    }
+
+    public function addY(Product $y): static
+    {
+        if (!$this->y->contains($y)) {
+            $this->y->add($y);
+            $y->addPurchase($this);
+        }
+
+        return $this;
+    }
+
+    public function removeY(Product $y): static
+    {
+        if ($this->y->removeElement($y)) {
+            $y->removePurchase($this);
+        }
 
         return $this;
     }
