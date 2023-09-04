@@ -1,7 +1,7 @@
 {{ form_start(form, {'attr': {'class': 'my-4 text-center'}}) }}
 
 <div class="mb-3">
-    {{ form_label(form.name, 'Name', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_label(form.name, 'Nom', {'label_attr': {'class': 'form-label'}}) }}
     {{ form_widget(form.name, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
 </div>
 
@@ -20,6 +20,6 @@
     {{ form_widget(form.note, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
 </div>
 
-<button class="btn-centered">{{ button_label|default('Save') }}</button>
+<button class="btn-centered">{{ button_label|default('Sauvegarder') }}</button>
 {{ form_end(form) }}
 
