@@ -89,9 +89,13 @@
 				{% for item in products %}
 					{% set type = item.type %}
 					<div class="containeur_produit">
+						<div class="card-body">
 							<h5 class="card-title">{{item.title }}</h5>
+
 							<img src="{{ asset('img/products')}}/{{ item.image }}" class="card-img" alt="{{ item.title }}">
 							<p class="card-text">{{item.description}}</p>
+
+						</div>
 					</div>
 				{% endfor %}
 			</div>
@@ -168,6 +172,7 @@
 
 	{# Section Contact #}
 	<section class="contact text-center ">
+
 
 		<h1 class="pt-4">
 			<span>C</span>ontactez-nous

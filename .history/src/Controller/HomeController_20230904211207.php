@@ -35,9 +35,11 @@ class HomeController extends AbstractController
 
         $productRepositoryPagination = $paginator->paginate(
             $productRepositoryData, // Requête contenant les données à paginer
+
             $request->query->getInt('page', 1), // Numéro de la page en cours, 1 par défaut
             12 // Nombre de résultats par page
         );
+
 
         //test contact
         $form = $this->createForm(ContactType::class);
@@ -76,8 +78,7 @@ class HomeController extends AbstractController
         //test contact  
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'reviews' => $reviewRepositoryPagination,
-            'products' => $productRepositoryPagination,
+            'reviews' => $pagination,
             //injecte et la vue de formulaire dans la vue
             'contactForm' => $form->createView(), // Passer le formulaire à la vue
         ]);

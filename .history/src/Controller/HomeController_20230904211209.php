@@ -39,6 +39,7 @@ class HomeController extends AbstractController
             12 // Nombre de résultats par page
         );
 
+
         //test contact
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
@@ -76,8 +77,7 @@ class HomeController extends AbstractController
         //test contact  
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'reviews' => $reviewRepositoryPagination,
-            'products' => $productRepositoryPagination,
+            'reviews' => $pagination,
             //injecte et la vue de formulaire dans la vue
             'contactForm' => $form->createView(), // Passer le formulaire à la vue
         ]);

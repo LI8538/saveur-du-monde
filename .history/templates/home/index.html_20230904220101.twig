@@ -208,7 +208,7 @@
 			<div class="mb-3">
 				<label for="contact_Message">{{ form_label(contactForm.Message) }}</label>
 				{{ form_widget(contactForm.Message, {'attr': {'class': 'form-control'}}) }}
-				{{ form_errors(contactForm.Message) }}
+				{{ form_errors(contactForm.Message), {'attr': {'class': 'mb-3'} }}
 			</div>
 			{{ form_end(contactForm) }}
 		</div>
