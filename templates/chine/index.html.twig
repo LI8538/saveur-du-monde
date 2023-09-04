@@ -29,43 +29,55 @@
 		<h2 class="mt-5">Entrées:</h2>
 
 
-
-
-{# {{ dump(products) }} #}
-
-
-		{# <div class="d-flex flex-wrap justify-content-center">
-    {% for product in products %}
+<div class="d-flex flex-wrap justify-content-center">
+   {% for product in entrees %}
         <div class="card m-5" style="width: 20rem;">
             <div class="card-body">
+                <img src="{{ asset('img/products') }}/{{ product.image }}" class="card-img" alt="{{ product.title }}">
                 <h5 class="card-title">{{ product.title }}</h5>
-                <p>{{ product.type }}</p>
+                <p>type: {{ product.type }}</p>
+                <p>categorie: {{ product.category }}</p>
+                <p>prix: {{ product.price }} €</p>
                 
-                <p class="card-text p-2 mt-3">{{ publication.description }}</p>
             </div>
         </div>
     {% endfor %}
-</div> #}
-
-
-
+</div>
+{# Section Les plats #}
+<h2 class="mt-5">Plats:</h2>
 
 <div class="d-flex flex-wrap justify-content-center">
-    {% for product in products %}
+   {% for product in plats %}
         <div class="card m-5" style="width: 20rem;">
             <div class="card-body">
+                <img src="{{ asset('img/products') }}/{{ product.image }}" class="card-img" alt="{{ product.title }}">
                 <h5 class="card-title">{{ product.title }}</h5>
-                <p>{{ product.type }}</p>
-				<img src="{{ asset('img/products') }}/{{ product.image }}" class="card-img" alt="{{ product.title }}">
+                <p>type: {{ product.type }}</p>
+                <p>categorie: {{ product.category }}</p>
+                <p>prix: {{ product.price }} €</p>
+                
             </div>
         </div>
     {% endfor %}
 </div>
 
+{# Section Les dessert #}
+<h2 class="mt-5">Deserts:</h2>
 
-
-
-
+<div class="d-flex flex-wrap justify-content-center">
+   {% for product in desserts %}
+        <div class="card m-5" style="width: 20rem;">
+            <div class="card-body">
+                <img src="{{ asset('img/products') }}/{{ product.image }}" class="card-img" alt="{{ product.title }}">
+                <h5 class="card-title">{{ product.title }}</h5>
+                <p>type: {{ product.type }}</p>
+                <p>categorie: {{ product.category }}</p>
+                <p>prix: {{ product.price }} €</p>
+                
+            </div>
+        </div>
+    {% endfor %}
+</div>
 
 
 	</section>
