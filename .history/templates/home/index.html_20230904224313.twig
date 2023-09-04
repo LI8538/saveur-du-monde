@@ -92,7 +92,8 @@
 					<div class="containeur_produit">
 							<h5 class="card-title d-flex justify-content-center">{{item.title }}</h5>
 							<img src="{{ asset('img/products')}}/{{ item.image }}" class="card-img" alt="{{ item.title }}">
-							<p>Nombre d'entrées:</p>
+							
+							<label for="quantity">Nombre d'entrées:</label>
             <input
               type="number"
               id="quantity"
@@ -105,7 +106,7 @@
 					</div>
 				{% endfor %}
 			</div>
-			
+			</div>
 		</div>
 
 		<h2 class="mt-5">Les plats:</h2>
@@ -118,7 +119,7 @@
 					<div class="containeur_produit">
 							<h5 class="card-title d-flex justify-content-center">{{item.title }}</h5>
 							<img src="{{ asset('img/products')}}/{{ item.image }}" class="card-img" alt="{{ item.title }}">
-							<p>Nombre de plats:</p>
+							<label for="quantity">Nombre de plats:</label>
             <input
               type="number"
               id="quantity"
@@ -126,8 +127,7 @@
               min="1"
               max="20"
             />
-            <button onclick=""><i class="fa-solid fa-cart-shopping position-relative">
-								</i></button>
+            <button onclick="">Ajouter au panier</button>
 					</div>
 				{% endfor %}
 			</div>
@@ -152,8 +152,7 @@
               min="1"
               max="20"
             />
-            <button onclick=""><i class="fa-solid fa-cart-shopping position-relative">
-								</i></button>
+            <button onclick="">Ajouter au panier</button>
 					</div>
 				{% endfor %}
 			</div>

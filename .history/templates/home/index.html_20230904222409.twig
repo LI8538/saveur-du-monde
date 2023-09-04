@@ -90,18 +90,9 @@
 				{% for item in products %}
 					{% set type = item.type %}
 					<div class="containeur_produit">
-							<h5 class="card-title d-flex justify-content-center">{{item.title }}</h5>
+							<h5 class="card-title">{{item.title }}</h5>
 							<img src="{{ asset('img/products')}}/{{ item.image }}" class="card-img" alt="{{ item.title }}">
-							<p>Nombre d'entrées:</p>
-            <input
-              type="number"
-              id="quantity"
-              name="quantity"
-              min="1"
-              max="20"
-            />
-            <button onclick=""><i class="fa-solid fa-cart-shopping position-relative">
-								</i></button>
+							<p class="card-text">{{item.description}}</p>
 					</div>
 				{% endfor %}
 			</div>
@@ -116,25 +107,16 @@
 				{% for item in products %}
 					{% set type = item.type %}
 					<div class="containeur_produit">
-							<h5 class="card-title d-flex justify-content-center">{{item.title }}</h5>
+							<h5 class="card-title">{{item.title }}</h5>
 							<img src="{{ asset('img/products')}}/{{ item.image }}" class="card-img" alt="{{ item.title }}">
-							<p>Nombre de plats:</p>
-            <input
-              type="number"
-              id="quantity"
-              name="quantity"
-              min="1"
-              max="20"
-            />
-            <button onclick=""><i class="fa-solid fa-cart-shopping position-relative">
-								</i></button>
+							<p class="card-text">{{item.description}}</p>
 					</div>
 				{% endfor %}
 			</div>
 			
 		</div>
 
-		<h2 class="mt-5">Les desserts:</h2>
+		<h2 class="mt-5">Les :</h2>
 		<div class="trait"></div>
 		
 		<div>
@@ -144,16 +126,7 @@
 					<div class="containeur_produit">
 							<h5 class="card-title">{{item.title }}</h5>
 							<img src="{{ asset('img/products')}}/{{ item.image }}" class="card-img" alt="{{ item.title }}">
-							<label for="quantity">Nombre de desserts:</label>
-            <input
-              type="number"
-              id="quantity"
-              name="quantity"
-              min="1"
-              max="20"
-            />
-            <button onclick=""><i class="fa-solid fa-cart-shopping position-relative">
-								</i></button>
+							<p class="card-text">{{item.description}}</p>
 					</div>
 				{% endfor %}
 			</div>

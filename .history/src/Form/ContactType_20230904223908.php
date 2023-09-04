@@ -108,6 +108,7 @@ class ContactType extends AbstractType
                 ],
             ]) // Terminé
             ->add('Envoyer', SubmitType::class, [
+                // 'attr' => ['class' => 'btn btn-success rounded-pill'],
             ]) // Terminé
         ;
     }
