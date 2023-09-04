@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,6 +33,17 @@ class Product
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     private ?Category $category = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $quantity = null;
+
+    #[ORM\ManyToMany(targetEntity: Purchase::class, inversedBy: 'y')]
+    private Collection $purchase;
+
+    public function __construct()
+    {
+        $this->purchase = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -105,6 +118,42 @@ class Product
     public function setCategory(?category $category): static
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(?int $quantity): static
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Purchase>
+     */
+    public function getPurchase(): Collection
+    {
+        return $this->purchase;
+    }
+
+    public function addPurchase(Purchase $purchase): static
+    {
+        if (!$this->purchase->contains($purchase)) {
+            $this->purchase->add($purchase);
+        }
+
+        return $this;
+    }
+
+    public function removePurchase(Purchase $purchase): static
+    {
+        $this->purchase->removeElement($purchase);
 
         return $this;
     }
