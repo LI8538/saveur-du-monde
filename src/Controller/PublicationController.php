@@ -6,6 +6,7 @@ use App\Entity\Publication;
 use App\Form\PublicationType;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\PublicationRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,6 +25,27 @@ class PublicationController extends AbstractController
         ]);
     }
 
+    #[Route('/all', name: 'app_publication_All', methods: ['GET'])]
+    public function all(PublicationRepository $publicationRepository, PaginatorInterface $paginator, Request $request): Response
+    {
+        $data = $publicationRepository->findBy([], ['publishedAt' => 'DESC']);
+
+        $pagination = $paginator->paginate(
+        $data, // Requête contenant les données à paginer
+        
+        $request->query->getInt('page', 1), // Numéro de la page en cours, 1 par défaut
+        12 // Nombre de résultats par page
+    );
+        return $this->render('publication/publication.html.twig', [
+            'publications' => $pagination
+            
+        ]);
+    }
+
+
+
+
+
 
 
 
@@ -32,28 +54,6 @@ class PublicationController extends AbstractController
 
     
     #[Route('/new', name: 'app_publication_new', methods: ['GET', 'POST'])]
-    // public function new(Request $request, EntityManagerInterface $entityManager): Response
-    // {
-    //     $publication = new Publication();
-    //     $form = $this->createForm(PublicationType::class, $publication);
-    //     $form->handleRequest($request);
-
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $entityManager->persist($publication);
-    //         $entityManager->flush();
-
-    //         return $this->redirectToRoute('app_publication_index', [], Response::HTTP_SEE_OTHER);
-    //     }
-
-    //     return $this->render('publication/new.html.twig', [
-    //         'publication' => $publication,
-    //         'form' => $form,
-
-    //     ]);
-    // }
-
-
-
           // SluggerInterface $slugger pour les affichage d'image
     public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {

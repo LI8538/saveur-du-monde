@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les publications
+{% endblock %}
+
+{% block body %}
+
+		{# {{ dump(publications) }} #}
+
+
+<h2 class="text-center my-5">Les plus récente publications</h2>
+		<p class="d-flex justify-content-center my-5 ">
+			<a class="btn btn-dark" href="{{ path('app_publication_new') }}">Poster votre envie</a>
+		</p>
+
+	<div class="d-flex flex-wrap justify-content-center">
+    {% for publication in publications %}
+        <div class="card m-5" style="width: 20rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ publication.title }}</h5>
+                {% if publication.user is not null %}
+                    <p>Rédigé par : {{ publication.user.firstname }} {{ publication.user.lastname }}</p>
+                {% else %}
+                    <p>Rédigé par : Utilisateur inconnu</p>
+                {% endif %}
+                <p>Publié le : {{ publication.publishedAt ? publication.publishedAt|date('Y-m-d H:i:s') : '' }}</p>
+                <img src="{{ asset('img/publications') }}/{{ publication.image }}" class="card-img" alt="{{ publication.title }}">
+                <p class="card-text p-2 mt-3">{{ publication.content }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
