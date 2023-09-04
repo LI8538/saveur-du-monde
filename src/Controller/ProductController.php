@@ -6,6 +6,7 @@ use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,6 +24,39 @@ class ProductController extends AbstractController
             'products' => $productRepository->findAll(),
         ]);
     }
+
+    // #[Route('/all', name: 'app_product_All', methods: ['GET'])]
+    // public function all(ProductRepository $productRepository, PaginatorInterface $paginator, Request $request): Response
+    // {
+    //     // return $this->render('product/index.html.twig', [
+    //     //     'products' => $productRepository->findAll(),
+    //     // ]);
+    //     $data = $productRepository->findAll();
+
+    //     $pagination = $paginator->paginate(
+    //     $data, // Requête contenant les données à paginer
+        
+    //     $request->query->getInt('page', 1), // Numéro de la page en cours, 1 par défaut
+    //     12 // Nombre de résultats par page
+    // );
+    //     return $this->render('chine/index.html.twig', [
+    //         'products' => $pagination
+    //     ]);
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     #[Route('/new', name: 'app_product_new', methods: ['GET', 'POST'])]
     // public function new(Request $request, EntityManagerInterface $entityManager): Response
