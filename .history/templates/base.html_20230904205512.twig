@@ -30,11 +30,11 @@
 				font-weigth: bold;
 			}
 			.trait {
-				background-color: #fb911f;
-				height: 2px;
-				width: 50%;
-				text-align: center;
-			}
+			background-color: #fb911f;
+			height: 2px;
+			width: 50%;
+			text-align: center;
+		}
 			.footer {
 				padding: 15px 40px;
 				border-top: 3px solid rgba(0, 0, 0, 0.1);
@@ -123,10 +123,10 @@
 						</li>
 
 						<li class="nav-item">
-							{% if not is_granted('ROLE_USER') %}
+						{% if not is_granted('ROLE_USER') %}
 								<a class="nav-link" href="{{ path('app_login') }}">
 									<i class="fa-solid fa-user"></i>
-								</a>
+							</a>
 							{% endif %}
 						</li>
 
