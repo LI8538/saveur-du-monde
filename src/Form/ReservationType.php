@@ -13,6 +13,7 @@ class ReservationType extends AbstractType
     {
         $builder
             ->add('name')
+
             ->add('phone')
             ->add('mail')
             ->add('date')

@@ -28,7 +28,7 @@ class PublicationType extends AbstractType
             ->add('user', EntityType::class, [
                 'class' => User::class, // L'entité cible
                 'choice_label' => 'lastname', // La propriété à afficher dans les options de sélection
-                'label' => 'Author', // Label du champ
+                'label' => 'Auteur', // Label du champ
             ])
         ;
     }
@@ -39,4 +39,5 @@ class PublicationType extends AbstractType
             'data_class' => Publication::class,
         ]);
     }
-}
+} 
+
