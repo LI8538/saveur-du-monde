@@ -70,7 +70,7 @@
 							<a class="nav-link" href="{{ path('app_review_avis') }}">Avis</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="{{ path('app_publication_All') }}">Publications</a>
+							<a class="nav-link" href="{{ path('app_publication_new') }}">Publications</a>
 						</li>
 
 						<li class="nav-item dropdown">
@@ -107,21 +107,17 @@
 								<a class="nav-link" href="{{ path('admin') }}">Admin</a>
 							{% endif %}
 						</li>
-
 						<li class="nav-item">
 							{% if is_granted('ROLE_USER') %}
 								<a class="nav-link" href="{{ path('app_logout') }}">
-									<i class="fa-solid fa-right-from-bracket"></i>
+									<i class="<i class="fa-solid fa-right-from-bracket"></i>"></i>
 								{% endif %}
 							</a>
 						</li>
-
 						<li class="nav-item">
-						{% if not is_granted('ROLE_USER') %}
 								<a class="nav-link" href="{{ path('app_login') }}">
 									<i class="fa-solid fa-user"></i>
 							</a>
-							{% endif %}
 						</li>
 
 					</ul>
