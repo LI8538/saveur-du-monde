@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Form\ContactType;
 use Symfony\Component\Mime\Email;
 use App\Repository\ReviewRepository;
-use App\Repository\ProductRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
@@ -16,28 +15,29 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home', methods: ['GET', 'POST'])]
-    public function index(
-        ReviewRepository $reviewRepository,
-        ProductRepository $productRepository,
-        PaginatorInterface $paginator,
-        Request $request,
-        MailerInterface $mailer
-    ): Response {
-        $reviewRepositoryData = $reviewRepository->findBy([], ['datePublication' => 'DESC']);
+    public function index(ReviewRepository $reviewRepository,
+    ProductRepository $productRepository
+    PaginatorInterface $paginator, 
+    Request $request, MailerInterface $mailer): Response
+    {
+        $data = $reviewRepository->findBy([], ['datePublication' => 'DESC']);
 
-        $reviewRepositoryPagination = $paginator->paginate(
-            $reviewRepositoryData, // Requête contenant les données à paginer
+        $pagination = $paginator->paginate(
+            $data, // Requête contenant les données à paginer
+
             $request->query->getInt('page', 1), // Numéro de la page en cours, 1 par défaut
             3 // Nombre de résultats par page
         );
 
-        $productRepositoryData = $productRepository->findAll();
+        $data = $productRepository->findAll();
 
-        $productRepositoryPagination = $paginator->paginate(
-            $productRepositoryData, // Requête contenant les données à paginer
+        $pagination = $paginator->paginate(
+            $data, // Requête contenant les données à paginer
+
             $request->query->getInt('page', 1), // Numéro de la page en cours, 1 par défaut
             12 // Nombre de résultats par page
         );
+
 
         //test contact
         $form = $this->createForm(ContactType::class);
@@ -76,8 +76,7 @@ class HomeController extends AbstractController
         //test contact  
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'reviews' => $reviewRepositoryPagination,
-            'products' => $productRepositoryPagination,
+            'reviews' => $pagination,
             //injecte et la vue de formulaire dans la vue
             'contactForm' => $form->createView(), // Passer le formulaire à la vue
         ]);

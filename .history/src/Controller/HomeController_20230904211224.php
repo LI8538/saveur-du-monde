@@ -77,7 +77,7 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'reviews' => $reviewRepositoryPagination,
-            'products' => $productRepositoryPagination,
+            
             //injecte et la vue de formulaire dans la vue
             'contactForm' => $form->createView(), // Passer le formulaire à la vue
         ]);
