@@ -36,8 +36,13 @@ class HomeController extends AbstractController
         $productRepositoryPagination = $paginator->paginate(
             $productRepositoryData, // Requête contenant les données à paginer
             $request->query->getInt('page', 1), // Numéro de la page en cours, 1 par défaut
-            12 // Nombre de résultats par page
+            4 // Nombre de résultats par page
         );
+        // variables des produits
+        $entrees = $productRepository->findProductsByCategoryAndType('Chine','bresil','cameroun','île Maurice', 'Entrée');
+        $plats = $productRepository->findProductsByCategoryAndType('Chine','bresil','cameroun','île Maurice', 'Plat');
+        $desserts = $productRepository->findProductsByCategoryAndType('Chine','bresil','cameroun','île Maurice', 'Dessert');
+
 
         //test contact
         $form = $this->createForm(ContactType::class);
@@ -78,6 +83,9 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
             'reviews' => $reviewRepositoryPagination,
             'products' => $productRepositoryPagination,
+            'entrees' => $entrees,
+            'plats' => $plats,
+            'desserts' => $desserts,
             //injecte et la vue de formulaire dans la vue
             'contactForm' => $form->createView(), // Passer le formulaire à la vue
         ]);
