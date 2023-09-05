@@ -45,7 +45,7 @@ class HomeController extends AbstractController
         foreach (['Chine', 'bresil', 'cameroun', 'île Maurice'] as $category) {
             $entrees[] = $productRepository->findProductsByCategoryAndType($category, 'Entrée')[0];
             $plats[] = $productRepository->findProductsByCategoryAndType($category, 'Plat')[0];
-            $desserts[] = $productRepository->findProductsByCategoryAndType($category, 'Dessert')[0];
+            $desserts[] = $productRepository->findProductsByCategoryAndType($category, 'Dessert'));
         }
 
         //test contact
