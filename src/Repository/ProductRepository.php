@@ -45,4 +45,16 @@ class ProductRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+public function findProductsByCategoryAndType(string $categoryName, string $productType)
+{
+    return $this->createQueryBuilder('p')
+        ->leftJoin('p.category', 'c')
+        ->andWhere('c.name = :categoryName')
+        ->setParameter('categoryName', $categoryName)
+        ->andWhere('p.type = :productType')
+        ->setParameter('productType', $productType)
+        ->getQuery()
+        ->getResult();
+}
+
 }
