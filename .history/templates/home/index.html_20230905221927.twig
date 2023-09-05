@@ -80,7 +80,7 @@
 		<div class="d-flex flex-wrap justify-content-center">
 			{% for item in products %}
 				{% set type = item.type %}
-				<div class="containeur_produit">
+				<div class="containeur_produit d-flex flex-column justify-content-center">
 					<h5 class="card-title d-flex justify-content-center">{{item.title }}</h5>
 					<img src="{{ asset('img/products')}}/{{ item.image }}" class="card-img" alt="{{ item.title }}">
 					<label for="quantity">Nombre d'entrées:</label>
