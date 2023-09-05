@@ -37,7 +37,8 @@
                 <p>type: {{ product.type }}</p>
                 <p>categorie: {{ product.category }}</p>
                 <p>prix: {{ product.price }} €</p>
-                
+                <a href="{{path('cart_add',{id:product.id}) }}">Ajouter au panier</a>
+                {# <a href="{{path('card_add')}}">Ajouter au panier</a> #}
             </div>
         </div>
     {% endfor %}
@@ -54,7 +55,7 @@
                 <p>type: {{ product.type }}</p>
                 <p>categorie: {{ product.category }}</p>
                 <p>prix: {{ product.price }} €</p>
-                
+                <a href="{{path('cart_add',{id:product.id}) }}">Ajouter au panier</a>
             </div>
         </div>
     {% endfor %}
@@ -72,12 +73,11 @@
                 <p>type: {{ product.type }}</p>
                 <p>categorie: {{ product.category }}</p>
                 <p>prix: {{ product.price }} €</p>
-                
+                <a href="{{path('cart_add',{id:product.id}) }}">Ajouter au panier</a>
             </div>
         </div>
     {% endfor %}
 </div>
-
 
 	</section>
 {% endblock %}
