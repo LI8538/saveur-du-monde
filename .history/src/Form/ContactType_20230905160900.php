@@ -92,7 +92,7 @@ class ContactType extends AbstractType
             ->add('Message', TextareaType::class, [
                 'required' => true,
                 'attr' => [
-                    'placeholder' => 'Rédigez votre message...',
+                    'placeholder' => 'Rédigez votre message juste ici',
                     'rows' => 10
                 ],
                 'label' => 'Rédigez votre message',
