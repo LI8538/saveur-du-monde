@@ -55,7 +55,6 @@ class ContactType extends AbstractType
             ]) // Terminé
             ->add('Sujet', ChoiceType::class, [
                 'choices'  => [
-                    'Sujet' => 'Sujet',
                     'Informations' => 'Informations',
                     'Partenariat' => 'postuler chez nous',
                     'Autre' => 'Autre',
@@ -64,7 +63,7 @@ class ContactType extends AbstractType
             ]) // Terminé
             ->add('Email', EmailType::class, [
                 'required' => true,
-                'attr' => ['placeholder' => 'Votre email'],
+                'attr' => ['placeholder' => 'Votre adresse email'],
                 'label' => 'Saisissez votre adresse email',
                 'constraints' => [
                     new Email([
@@ -74,7 +73,7 @@ class ContactType extends AbstractType
             ]) // Terminé
             ->add('Telephone', TelType::class, [
                 'required' => false,
-                'attr' => ['placeholder' => 'Votre téléphone'],
+                'attr' => ['placeholder' => 'Votre numéro de téléphone'],
                 'label' => 'Avez-vous un numéro de téléphone ?',
                 'constraints' => [
                     // new Regex([
@@ -92,7 +91,7 @@ class ContactType extends AbstractType
             ->add('Message', TextareaType::class, [
                 'required' => true,
                 'attr' => [
-                    'placeholder' => 'Rédigez votre message...',
+                    'placeholder' => 'Rédigez votre message juste ici',
                     'rows' => 10
                 ],
                 'label' => 'Rédigez votre message',
