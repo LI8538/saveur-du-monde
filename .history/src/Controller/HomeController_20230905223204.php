@@ -39,14 +39,15 @@ class HomeController extends AbstractController
             4 // Nombre de résultats par page
         );
         // variables des produits
-        $entrees = [];
-        $plats = [];
-        $desserts = [];
-        foreach (['Chine', 'bresil', 'cameroun', 'île Maurice'] as $category) {
-            $entrees[] = $productRepository->findProductsByCategoryAndType($category, 'Entrée')[0];
-            $plats[] = $productRepository->findProductsByCategoryAndType($category, 'Plat')[0];
-            $desserts[] = $productRepository->findProductsByCategoryAndType($category, 'Dessert')[0];
-        }
+        $entrees = []
+        forech()
+        $entrees += $productRepository->findProductsByCategoryAndType('Chine','bresil','cameroun','île Maurice', 'Entrée') 
+        + $productRepository->findProductsByCategoryAndType('Chine','bresil','cameroun','île Maurice', 'Entrée')
+        + $productRepository->findProductsByCategoryAndType('Chine','bresil','cameroun','île Maurice', 'Entrée')+
+        $productRepository->findProductsByCategoryAndType('Chine','bresil','cameroun','île Maurice', 'Entrée');
+        $plats = $productRepository->findProductsByCategoryAndType('Chine','bresil','cameroun','île Maurice', 'Plat');
+        $desserts = $productRepository->findProductsByCategoryAndType('Chine','bresil','cameroun','île Maurice', 'Dessert');
+
 
         //test contact
         $form = $this->createForm(ContactType::class);
