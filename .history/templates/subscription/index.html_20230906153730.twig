@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La Carte{% endblock %}
+
+{% block body %}
+
+<div class="d-flex flex-column align-items-center">
+
+ <h1 class="mt-5">La Carte</h1>
+    <p>Régalez-vous avec les délices de: Chine, Cameroun, Brésil et île Maurice!</p>
+<div class="trait"></div>
+
+<table class="table-responsive">
+  <thead>
+    <tr class="p-5">
+      <th scope="col">Menu</th>
+      <th scope="col">Entrée</th>
+      <th scope="col">Prix</th>
+      
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <tr>
+				{% for item in entrees %}
+					{% set type = item.type %}
+					
+						<h5 class="card-title d-flex justify-content-center">{{item.title }}</h5>
+					</div>
+				{% endfor %}
+			</div>
+      <td>{{item.category }}</td>
+      <td>{{item.title }}</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+     
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+{% endblock %}

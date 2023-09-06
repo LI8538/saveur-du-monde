@@ -16,21 +16,9 @@ class SubscriptionController extends AbstractController
     {
         $productRepositoryData = $productRepository->findAll();
 
-        $entrees = [];
-        $plats = [];
-        $desserts = [];
-        foreach (['Chine', 'bresil', 'cameroun', 'île Maurice'] as $category) {
-            $entrees[] = $productRepository->findProductsByCategoryAndType($category, 'Entrée');
-            $plats[] = $productRepository->findProductsByCategoryAndType($category, 'Plat');
-            $desserts[] = $productRepository->findProductsByCategoryAndType($category, 'Dessert');
-        }
-
         return $this->render('subscription/index.html.twig', [
             'controller_name' => 'SubscriptionController',
             'products' => $productRepositoryData,
-            'entrees' => $entrees,
-            'plats' => $plats,
-            'desserts' => $desserts,
         ]);
     }
 }

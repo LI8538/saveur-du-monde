@@ -15,7 +15,7 @@ class SubscriptionController extends AbstractController
     ): Response
     {
         $productRepositoryData = $productRepository->findAll();
-
+        
         $entrees = [];
         $plats = [];
         $desserts = [];
@@ -28,9 +28,6 @@ class SubscriptionController extends AbstractController
         return $this->render('subscription/index.html.twig', [
             'controller_name' => 'SubscriptionController',
             'products' => $productRepositoryData,
-            'entrees' => $entrees,
-            'plats' => $plats,
-            'desserts' => $desserts,
         ]);
     }
 }
