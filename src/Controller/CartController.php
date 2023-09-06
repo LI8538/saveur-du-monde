@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Product;
 use App\Service\CartService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -15,6 +16,7 @@ class CartController extends AbstractController
     public function index(CartService $cartService): Response
     {   
         // dd($cartService->getTotal());
+
         return $this->render('cart/index.html.twig',[
             'cart'=> $cartService->getTotal()
         ]);
@@ -38,6 +40,18 @@ class CartController extends AbstractController
         return $this->redirectToRoute('cart_index');
     }
 
+
+
+
+
+
+    #[Route('/mon-panier/decrease/{id<\d+>}', name: 'cart_decrease')]
+    public function decrease(CartService $cartService, int $id): RedirectResponse
+    {   
+        $cartService->decrease($id);
+
+        return $this->redirectToRoute('cart_index');
+    }
 
 
 
