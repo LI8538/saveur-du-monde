@@ -28,9 +28,7 @@ class SubscriptionController extends AbstractController
         return $this->render('subscription/index.html.twig', [
             'controller_name' => 'SubscriptionController',
             'products' => $productRepositoryData,
-            'entrees' => $entrees,
-            'plats' => $plats,
-            'desserts' => $desserts,
+            
         ]);
     }
 }
