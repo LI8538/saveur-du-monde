@@ -12,14 +12,13 @@ class SubscriptionController extends AbstractController
     #[Route('/la-carte', name: 'app_subscription', methods: ['GET', 'POST'])]
     public function index(
         ProductRepository $productRepository,
-    ): Response
-    {
+    ): Response {
         $productRepositoryData = $productRepository->findAll();
 
-        $entrees = $productRepository->findProductsByType('Entrée');
-        $plats = $productRepository->findProductsByType('Plat');
-        $desserts = $productRepository->findProductsByType('Dessert');
-       
+        $entrees = $productRepository->findProductsType('Entrée');
+        $plats = $productRepository->findProductsType('Plat');
+        $desserts = $productRepository->findProductsType('Dessert');
+
         return $this->render('subscription/index.html.twig', [
             'controller_name' => 'SubscriptionController',
             'products' => $productRepositoryData,

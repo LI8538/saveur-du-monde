@@ -18,7 +18,7 @@ class SubscriptionController extends AbstractController
 
         $entrees = $productRepository->findProductsByType('Entrée');
         $plats = $productRepository->findProductsByType('Plat');
-        $desserts = $productRepository->findProductsByType('Dessert');
+        $desserts = $productRepository->findProductsType('Dessert');
        
         return $this->render('subscription/index.html.twig', [
             'controller_name' => 'SubscriptionController',
