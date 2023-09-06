@@ -33,16 +33,8 @@
                 <img src="{{ asset('img/products') }}/{{ product.image }}" class="card-img" alt="{{ product.title }}">
                 <p class="fs-6">Ingrédients: {{ product.description }}</p>
                 <p>prix: {{ product.price }} €</p>
-                 <p>Nombre d'entrées:</p>
-            <input
-              type="number"
-              id="quantity"
-              name="quantity"
-              min="1"
-              max="20"
-            />
-            <button onclick=""><i class="fa-solid fa-cart-shopping position-relative">
-								</i></button>
+            <a href="{{path('cart_add',{id:product.id}) }}">Ajouter au panier</a>
+
         </div>
     {% endfor %}
 </div>

@@ -79,6 +79,9 @@ class HomeController extends AbstractController
 
             $mailer->send($contactMessage);
 
+
+
+
             $this->addFlash('success', 'Votre message a bien été envoyé !');
             return $this->redirectToRoute('app_home');
         }
@@ -94,4 +97,7 @@ class HomeController extends AbstractController
             'contactForm' => $form->createView(), // Passer le formulaire à la vue
         ]);
     }
+
+
+
 }

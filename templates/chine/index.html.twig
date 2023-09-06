@@ -35,7 +35,6 @@
                 <img src="{{ asset('img/products') }}/{{ product.image }}" class="card-img" alt="{{ product.title }}">
                 <p class="fs-6">Ingrédients: {{ product.description }}</p>
                 <p>prix: {{ product.price }} €</p>
-
                 <a href="{{path('cart_add',{id:product.id}) }}">Ajouter au panier</a>
                 {# <a href="{{path('card_add')}}">Ajouter au panier</a> #}
             </div>
