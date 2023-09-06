@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La Carte
+{% endblock %}
+
+{% block body %}
+
+	<div class="d-flex flex-column align-items-center">
+
+		<h1 class="mt-5">La Carte</h1>
+		<p>Régalez-vous avec les délices de: Chine, Cameroun, Brésil et île Maurice!</p>
+		<div class="trait"></div>
+
+		<table class="table-responsive">
+			<thead>
+				<tr class="p-5">
+					<th scope="col">Menu</th>
+					<th scope="col">Entrée</th>
+					<th scope="col">Prix</th>
+
+				</tr>
+			</thead>
+			<tbody>
+          
+				
+					{% for item in entrees %}
+						<tr><td>{{product.category }}</td></tr> 
+						<tr><td>{{item.product.title }}</td></tr> 
+						<tr><td>{{item.product.price }}</td></tr> 
+					{% endfor %}
+				
+			</tbody>
+            <thead>
+				<tr class="p-5">
+					<th scope="col">Menu</th>
+					<th scope="col">Plat</th>
+					<th scope="col">Prix</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				
+					{# {% for item in plats %}
+						<tr><td>{{item.category }}</td></tr> 
+						<tr><td>{{item.title }}</td></tr> 
+						<tr> <td>{{item.price }}</td></tr> 
+					{% endfor %}
+				 #}
+			</tbody>
+            <thead>
+				<tr class="p-5">
+					<th scope="col">Menu</th>
+					<th scope="col">Dessert</th>
+					<th scope="col">Prix</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				
+					{# {% for item in desserts %}
+						<tr><td>{{item.category }}</td></tr> 
+						<tr><td>{{item.title }}</td></tr> 
+						<tr> <td>{{item.price }}</td></tr> 
+					{% endfor %}
+				 #}
+			</tbody>
+		</table>
+
+	</div>
+{% endblock %}

@@ -4,17 +4,14 @@
 {% endblock %}
 
 {% block body %}
-<style>
-td{
-    font-size: 15px;
-}</style>
-	<div class="d-flex flex-column text-center align-items-center">
+
+	<div class="d-flex flex-column align-items-center">
 
 		<h1 class="mt-5">La Carte</h1>
-		<p>Régalez-vous avec les délices du Brésil, Chine, île Maurice et Cameroun!</p>
+		<p>Régalez-vous avec les délices de: Chine, Cameroun, Brésil et île Maurice!</p>
 		<div class="trait"></div>
 
-		<table class="mt-5 table w-50 p-3 table-responsive">
+		<table class="table-responsive">
 			<thead>
 				<tr class="p-5">
 					<th scope="col">Menu</th>
@@ -27,11 +24,11 @@ td{
 
 
 				{% for item in entrees %}
-					<tr>
-						<td>{{item.category }}</td>
-						<td>{{item.title }}</td>
-						<td>{{item.price }}€</td>
-					</tr>
+					
+				
+					 <tr><td>{{product.category }}</td></tr>  #}
+					<tr><td>{{product.title }}</td></tr> 
+					<tr><td>{{product.price }}</td></tr>
 				{% endfor %}
 
 			</tbody>
@@ -44,14 +41,13 @@ td{
 				</tr>
 			</thead>
 			<tbody>
-				{% for item in plats %}
-					<tr>
-						<td>{{item.category }}</td>
-						<td>{{item.title }}</td>
-						<td>{{item.price }}€</td>
-					</tr>
-				{% endfor %}
 
+				{# {% for item in plats %}
+										<tr><td>{{item.category }}</td></tr> 
+										<tr><td>{{item.title }}</td></tr> 
+										<tr> <td>{{item.price }}</td></tr> 
+									{% endfor %}
+								 #}
 			</tbody>
 			<thead>
 				<tr class="p-5">
@@ -63,13 +59,12 @@ td{
 			</thead>
 			<tbody>
 
-				{% for item in desserts %}
-					<tr>
-						<td>{{item.category }}</td>
-						<td>{{item.title }}</td>
-						<td>{{item.price }}€</td>
-					</tr>
-				{% endfor %}
+				{# {% for item in desserts %}
+										<tr><td>{{item.category }}</td></tr> 
+										<tr><td>{{item.title }}</td></tr> 
+										<tr> <td>{{item.price }}</td></tr> 
+									{% endfor %}
+								 #}
 			</tbody>
 		</table>
 

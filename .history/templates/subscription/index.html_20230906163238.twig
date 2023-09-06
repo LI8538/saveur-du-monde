@@ -4,17 +4,14 @@
 {% endblock %}
 
 {% block body %}
-<style>
-td{
-    font-size: 15px;
-}</style>
-	<div class="d-flex flex-column text-center align-items-center">
+
+	<div class="d-flex flex-column align-items-center">
 
 		<h1 class="mt-5">La Carte</h1>
-		<p>Régalez-vous avec les délices du Brésil, Chine, île Maurice et Cameroun!</p>
+		<p>Régalez-vous avec les délices de: Chine, Cameroun, Brésil et île Maurice!</p>
 		<div class="trait"></div>
 
-		<table class="mt-5 table w-50 p-3 table-responsive">
+		<table class="mt- table w-50 p-3 table-responsive">
 			<thead>
 				<tr class="p-5">
 					<th scope="col">Menu</th>
@@ -30,7 +27,7 @@ td{
 					<tr>
 						<td>{{item.category }}</td>
 						<td>{{item.title }}</td>
-						<td>{{item.price }}€</td>
+						<td>{{item.price }}</td>
 					</tr>
 				{% endfor %}
 
@@ -48,7 +45,7 @@ td{
 					<tr>
 						<td>{{item.category }}</td>
 						<td>{{item.title }}</td>
-						<td>{{item.price }}€</td>
+						<td>{{item.price }}</td>
 					</tr>
 				{% endfor %}
 
@@ -67,7 +64,7 @@ td{
 					<tr>
 						<td>{{item.category }}</td>
 						<td>{{item.title }}</td>
-						<td>{{item.price }}€</td>
+						<td>{{item.price }}</td>
 					</tr>
 				{% endfor %}
 			</tbody>

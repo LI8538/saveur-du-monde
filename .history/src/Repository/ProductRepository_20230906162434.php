@@ -26,7 +26,7 @@ class ProductRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function findProductsByType(string $productType)
+    public function findProductsType(string $productType)
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.type = :productType')
