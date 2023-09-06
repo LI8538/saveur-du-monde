@@ -38,7 +38,7 @@ class HomeController extends AbstractController
             $request->query->getInt('page', 1), // Numéro de la page en cours, 1 par défaut
             4 // Nombre de résultats par page
         );
-        // affichage d'un produit par catégorie sur la Home
+        // affichage d'un produit par 
         $entrees = [];
         $plats = [];
         $desserts = [];
