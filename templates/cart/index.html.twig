@@ -51,7 +51,10 @@
 {% endfor %}
 {# total prix #}
 <p class="fs-4 mb-2">Total: {{ (total )|number_format(2,',','.') }} €</p>
-<button>Valider mon panier</button>
+<a href="{{ path('app_payment', {'totalAmount': total}) }}" class="btn btn-primary">Valider mon panier</a>
+
+
+
 
 {# sinon affiche panier vid #}
     {% else %}
