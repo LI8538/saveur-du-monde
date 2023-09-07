@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-use App\Entity\Product;
+
 use App\Form\ContactType;
 use App\Service\CartService;
 use Symfony\Component\Mime\Email;
@@ -88,6 +88,15 @@ class HomeController extends AbstractController
         }
         //test contact  
 
+
+
+
+
+
+
+
+
+
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'reviews' => $reviewRepositoryPagination,
@@ -97,10 +106,14 @@ class HomeController extends AbstractController
             'desserts' => $desserts,
             //injecte et la vue de formulaire dans la vue
             'contactForm' => $form->createView(), // Passer le formulaire à la vue
+
+
             'cart'=> $cartService->getTotal()
 
             
         ]);
     }
+
+
 
 }

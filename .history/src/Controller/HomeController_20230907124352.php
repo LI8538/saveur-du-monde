@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-use App\Entity\Product;
+
 use App\Form\ContactType;
 use App\Service\CartService;
 use Symfony\Component\Mime\Email;
@@ -102,5 +102,7 @@ class HomeController extends AbstractController
             
         ]);
     }
+
+
 
 }
