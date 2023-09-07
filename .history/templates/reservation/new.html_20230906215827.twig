@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Reservation{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mb-4">Réservez votre table dans notre restaurant!</h1>
+    <p>Profitez d'un moment agréable seul ou avec votre entourage, vous allez prendre du plaisir à gouter les mets exquis de nos 4 chefs internationaux </p>
+
+    {{ include('reservation/_form.html.twig') }}
+
+    <a href="{{ path('app_reservation_index') }}">back to list</a>
+{% endblock %}
