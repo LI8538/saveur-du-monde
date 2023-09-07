@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Reservation{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mb-4">Créer une nouvelle Réservation</h1>
+
+    {{ include('reservation/_form.html.twig') }}
+
+    <a href="{{ path('app_reservation_index') }}">back to list</a>
+{% endblock %}

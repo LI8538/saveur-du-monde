@@ -10,18 +10,22 @@
 </div>
 
 <div class="mb-3">
+    {{ form_label(form.mail, 'Mail', {'label_attr': {'class': 'form-label'}}) }}
     {{ form_widget(form.mail, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
 </div>
 
 <div class="mb-3">
+    {{ form_label(form.date, 'Date', {'label_attr': {'class': 'form-label'}}) }}
     {{ form_widget(form.date, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
 </div>
 
 <div class="mb-3">
+    {{ form_label(form.numberPerson, 'Nombre de personnes', {'label_attr': {'class': 'form-label'}}) }}
     {{ form_widget(form.numberPerson, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
 </div>
 
 <div class="mb-3">
+    {{ form_label(form.message, 'Message', {'label_attr': {'class': 'form-label'}}) }}
     {{ form_widget(form.message, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
 </div>
 
