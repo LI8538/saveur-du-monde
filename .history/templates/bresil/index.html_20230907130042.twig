@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Saveurs Brésiliennes
+{% endblock %}
+{% block body %}
+	<style>
+		div {
+			text-align: center;
+		}
+	</style>
+
+
+	<div>
+		<div>
+			<img class="bg" src={{ asset('img/background-bresil_1200x600.jpg') }}>
+		</div>
+
+		<h1>Saveurs Brésiliennes</h1>
+
+		{# Section Les Entrées #}
+		<section class="d-flex flex-column align-items-center my-5">
+			<h2>
+				<span>M</span>enu</h2>
+			<p>Bon Appétit et surtout régalez vous!
+			</p>
+			<h2>Les Entrées:</h2>
+			<div class="trait"></div>
+
+			{# Boucle Entrées #}
+			<div class="d-flex flex-row flex-wrap">
+				{% for product in entrees %}
+					<div class="containeur_produit">
+						<div class="card-body d-flex flex-column align-items-center">
+							<h5 class="card-title">{{ product.title }}</h5>
+							<img src="{{ asset('img/products') }}/{{ product.image }}" class="card-img" alt="{{ product.title }}">
+							<p class="fs-6">Ingrédients:
+								{{ product.description }}</p>
+							<div class="d-flex flex-row gap-5">
+							<p>{{ product.price }}
+								€</p>
+							<a href="{{path('cart_add',{id:product.id}) }}">
+								<button>
+									<i class="fa-solid fa-cart-shopping position-relative"></i>
+								</button>
+							</a>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+
+			{# Section Les plats #}
+			<h2 class="mt-5">Les Plats:</h2>
+			<div class="trait"></div>
+
+			{# Boucle Plats #}
+			<div class="d-flex flex-row flex-wrap">
+				{% for product in plats %}
+					<div class="containeur_produit">
+						<div class="card-body d-flex flex-column">
+							<h5 class="card-title">{{ product.title }}</h5>
+							<img src="{{ asset('img/products') }}/{{ product.image }}" class="card-img" alt="{{ product.title }}">
+							<p class="fs-6">Ingrédients:
+								{{ product.description }}</p>
+							<div class="d-flex flex-row gap-5">
+							<p>{{ product.price }}
+								€</p>
+							<a href="{{path('cart_add',{id:product.id}) }}">
+								<button>
+									<i class="fa-solid fa-cart-shopping position-relative"></i>
+								</button>
+							</a>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+
+			{# Section Les desserts #}
+			<h2 class="mt-5">Les Desserts:</h2>
+			<div class="trait"></div>
+
+		{# Boucle Desserts #}
+			<div class="d-flex flex-row flex-wrap">
+				{% for product in desserts %}
+					<div class="containeur_produit">
+						<div class="card-body d-flex flex-column">
+							<h5 class="card-title">{{ product.title }}</h5>
+							<img src="{{ asset('img/products') }}/{{ product.image }}" class="card-img" alt="{{ product.title }}">
+							<p class="fs-6">Ingrédients:
+								{{ product.description }}</p>
+							<div class="d-flex flex-row gap-5">
+							<p>{{ product.price }}
+								€</p>
+							<a href="{{path('cart_add',{id:product.id}) }}">
+								<button>
+									<i class="fa-solid fa-cart-shopping position-relative"></i>
+								</button>
+							</a>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+</section>{% endblock %}
