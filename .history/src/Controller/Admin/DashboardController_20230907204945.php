@@ -51,8 +51,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Catégory', 'fas fa-folder-open', Category::class);
         // yield MenuItem::linkToCrud('Achat', 'fas fa-cart-shopping', Purchase::class);
         yield MenuItem::section('Autres');
-        yield MenuItem::linkToRoute('Retour à la page d\'accueil', 'fas fa-arrow-left', 'app_home');
-        yield MenuItem::linkToLogout('Déconnexion', 'fas fa-arrow-right-from-bracket');
     }
 }
 
