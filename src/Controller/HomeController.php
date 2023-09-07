@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\ContactType;
+use App\Service\CartService;
 use Symfony\Component\Mime\Email;
 use App\Repository\ReviewRepository;
 use App\Repository\ProductRepository;
@@ -21,7 +22,11 @@ class HomeController extends AbstractController
         ProductRepository $productRepository,
         PaginatorInterface $paginator,
         Request $request,
-        MailerInterface $mailer
+        MailerInterface $mailer,
+        CartService $cartService
+
+
+        
     ): Response {
         $reviewRepositoryData = $reviewRepository->findBy([], ['datePublication' => 'DESC']);
 
@@ -78,14 +83,20 @@ class HomeController extends AbstractController
                 ");
 
             $mailer->send($contactMessage);
-
-
-
-
             $this->addFlash('success', 'Votre message a bien été envoyé !');
             return $this->redirectToRoute('app_home');
         }
         //test contact  
+
+
+
+
+
+
+
+
+
+
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'reviews' => $reviewRepositoryPagination,
@@ -95,6 +106,11 @@ class HomeController extends AbstractController
             'desserts' => $desserts,
             //injecte et la vue de formulaire dans la vue
             'contactForm' => $form->createView(), // Passer le formulaire à la vue
+
+
+            'cart'=> $cartService->getTotal()
+
+            
         ]);
     }
 
