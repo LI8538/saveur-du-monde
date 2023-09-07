@@ -38,8 +38,7 @@
     {{ form_label(form.message, 'Message', {'label_attr': {'class': 'form-label'}}) }}
     {{ form_widget(form.message, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
 
-
-<button>{{ button_label|default('Sauvegarder') }}</button>
+<button class="btn-centered">{{ button_label|default('Envoyer') }}</button>
 
 {{ form_end(form) }}
 
