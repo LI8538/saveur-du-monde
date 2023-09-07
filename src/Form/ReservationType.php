@@ -50,6 +50,8 @@ class ReservationType extends AbstractType
             ])
             ->add('date', DateType::class)
             ->add('numberPerson')
+            ->add('message')
+      
             ->add('message', TextareaType::class, [
                 'required' => true,
                 'attr' => [
@@ -69,8 +71,7 @@ class ReservationType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('isConfirm')
-        ;
+      
     }
 
     public function configureOptions(OptionsResolver $resolver): void

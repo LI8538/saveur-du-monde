@@ -1,3 +1,11 @@
+{# réglé dans le flashMessage #}
+{% for flashMessage in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+
 
 {{ form_start(form, {'attr': {'class': 'my-4 text-center'}}) }}
 
@@ -25,10 +33,10 @@
     {{ form_widget(form.message, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
 </div>
 
-<div class="mb-3">
+{# <div class="mb-3">
     {{ form_label(form.isConfirm, 'Confirmation', {'label_attr': {'class': 'form-check-label'}}) }}
     {{ form_widget(form.isConfirm, {'attr': {'class': 'form-check-input'}}) }}
-</div>
+</div> #}
 
 
 
