@@ -10,39 +10,35 @@
 {{ form_start(form, {'attr': {'class': 'my-4 text-center'}}) }}
 
 <div class="mb-3">
+    {{ form_label(form.name, 'Nom', {'label_attr': {'class': 'form-label'}}) }}
     {{ form_widget(form.name, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
 </div>
 
 <div class="mb-3">
+    {{ form_label(form.phone, 'Numéro de téléphone', {'label_attr': {'class': 'form-label'}}) }}
     {{ form_widget(form.phone, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
 </div>
 
 <div class="mb-3">
+    {{ form_label(form.mail, 'Mail', {'label_attr': {'class': 'form-label'}}) }}
     {{ form_widget(form.mail, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
 </div>
 
 <div class="mb-3">
+    {{ form_label(form.date, 'Date', {'label_attr': {'class': 'form-label'}}) }}
     {{ form_widget(form.date, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
 </div>
 
 <div class="mb-3">
+    {{ form_label(form.numberPerson, 'Nombre de personnes', {'label_attr': {'class': 'form-label'}}) }}
     {{ form_widget(form.numberPerson, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
 </div>
 
 <div class="mb-3">
+    {{ form_label(form.message, 'Message', {'label_attr': {'class': 'form-label'}}) }}
     {{ form_widget(form.message, {'attr': {'class': 'form-control mx-auto', 'style': 'width: 50%;'}}) }}
-</div>
 
-{# <div class="mb-3">
-    {{ form_label(form.isConfirm, 'Confirmation', {'label_attr': {'class': 'form-check-label'}}) }}
-    {{ form_widget(form.isConfirm, {'attr': {'class': 'form-check-input'}}) }}
-</div> #}
-
-
-
-<button class="btn-centered" type="submit">Envoyer</button>
-
-
+<button class="btn-centered">{{ button_label|default('Envoyer') }}</button>
 
 {{ form_end(form) }}
 
