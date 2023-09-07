@@ -23,13 +23,12 @@
 							<th scope="col">Prix par Quantité</th>
 						</tr>
 					</thead>
-					<tbody>
 					{% if cart|length > 0 %}
 			{% set total = null %}
 			{% for item in cart %}
 				{% set total = total + (item.product.price * item.quantity) %}
 				{% set itemTotal = item.product.price * item.quantity %}
-					
+					<tbody>
 						<tr>
 							<td>{{ item.product.category }}</td>
 							<td>{{item.product.title}}</td>

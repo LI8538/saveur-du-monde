@@ -12,7 +12,11 @@
 	</style>
 	<section class="d-flex flex-column text-center align-items-center justify-content-center mt-5">
 		<h1>Mon panier</h1>
-		
+		{% if cart|length > 0 %}
+			{% set total = null %}
+			{% for item in cart %}
+				{% set total = total + (item.product.price * item.quantity) %}
+				{% set itemTotal = item.product.price * item.quantity %}
 				<table class="table w-75">
 					<thead>
 						<tr>
@@ -24,12 +28,6 @@
 						</tr>
 					</thead>
 					<tbody>
-					{% if cart|length > 0 %}
-			{% set total = null %}
-			{% for item in cart %}
-				{% set total = total + (item.product.price * item.quantity) %}
-				{% set itemTotal = item.product.price * item.quantity %}
-					
 						<tr>
 							<td>{{ item.product.category }}</td>
 							<td>{{item.product.title}}</td>

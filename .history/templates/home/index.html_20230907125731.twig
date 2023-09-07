@@ -103,7 +103,7 @@
 		<h2 class="mt-5">Les Plats:</h2>
 		<div class="trait"></div>
 
-		{# Boucle Plats #}
+		{# Boucle Entrées #}
 			<div class="d-flex flex-row flex-wrap">
 				{% for product in plats %}
 					<div class="containeur_produit">
@@ -139,7 +139,6 @@
 							<img src="{{ asset('img/products') }}/{{ product.image }}" class="card-img" alt="{{ product.title }}">
 							<p class="fs-6">Ingrédients:
 								{{ product.description }}</p>
-								<div class="d-flex flex-row gap-5">
 							<p>{{ product.price }}
 								€</p>
 							<a href="{{path('cart_add',{id:product.id}) }}">
@@ -147,11 +146,11 @@
 									<i class="fa-solid fa-cart-shopping position-relative"></i>
 								</button>
 							</a>
-							</div>
 						</div>
 					</div>
 				{% endfor %}
 			</div>
+
 		</div>
 
 	</section>
