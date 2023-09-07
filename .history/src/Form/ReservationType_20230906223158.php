@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Reservation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -48,7 +49,7 @@ class ReservationType extends AbstractType
                     ])
                 ]
             ])
-            ->add('date', DateType::class)
+            ->add('date')
             ->add('numberPerson')
             ->add('message', TextareaType::class, [
                 'required' => true,
@@ -68,7 +69,7 @@ class ReservationType extends AbstractType
                         'maxMessage' => 'Votre message doit contenir au maximum {{ limit }} caractères',
                     ]),
                 ],
-            ])
+            ]
             ->add('isConfirm')
         ;
     }

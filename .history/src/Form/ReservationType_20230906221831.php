@@ -2,18 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Reservation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TelType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Validator\Constraints\Email;
-use Symfony\Component\Validator\Constraints\Length;
 
 class ReservationType extends AbstractType
 {
@@ -48,27 +40,10 @@ class ReservationType extends AbstractType
                     ])
                 ]
             ])
-            ->add('date', DateType::class)
+            ->add('date')
+            ->add('hour')
             ->add('numberPerson')
-            ->add('message', TextareaType::class, [
-                'required' => true,
-                'attr' => [
-                    'placeholder' => 'Rédigez votre message...',
-                    'rows' => 10
-                ],
-                'label' => 'Rédigez votre message',
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Merci d\'écrire un message',
-                    ]),
-                    new Length([
-                        'min' => 100,
-                        'minMessage' => 'Votre message doit contenir au moins {{ limit }} caractères',
-                        'max' => 2000,
-                        'maxMessage' => 'Votre message doit contenir au maximum {{ limit }} caractères',
-                    ]),
-                ],
-            ])
+            ->add('message')
             ->add('isConfirm')
         ;
     }
