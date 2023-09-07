@@ -19,7 +19,7 @@ class ReservationType extends AbstractType
             ->add('date')
             ->add('numberPerson')
             ->add('message')
-            ->add('isConfirm')
+            // ->add('isConfirm')
         ;
     }
 
