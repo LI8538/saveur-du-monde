@@ -7,30 +7,66 @@
 	<style>
 		span {
 			color: #fb911f;
-			font-weigth: bold;
+			font-weight: bold;
 		}
+        
+        table{
+            width:320px;
+            height:198px;
+        }
+       
 	</style>
 	<div>
 		{# Section A Propos #}
 		<section class="my-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h2 class="text-center">
-                    <span>A</span>
-                    Propos De Nous
-                </h2>
-                <p class="text-left text-justify mt-4 me-5">
-                    Nous sommes une équipe passionnée de gastronomie, composée de quatre personnes issues de quatre pays différents : le Cameroun, la Chine, le Brésil et l'Ile Maurice. Notre ambition est de faire découvrir les richesses culinaires de nos pays respectifs au monde entier. Nous avons créé ce site e-Commerce pour permettre à chacun de goûter des plats authentiques et savoureux, préparés selon des recettes traditionnelles transmises de génération en génération dans nos familles respectives. Nous mettons un point d'honneur à sélectionner des ingrédients de qualité, respectueux de l'environnement et des modes de production responsables. Que vous soyez amateur de cuisine épicée, sucrée ou salée, vous trouverez certainement votre bonheur parmi notre sélection de plats typiques du Cameroun, de la Chine, du Brésil et de l'Ile Maurice. Nous sommes fiers de pouvoir partager notre passion pour la gastronomie et nos cultures avec vous, et nous espérons que vous prendrez autant de plaisir à déguster nos plats que nous en avons eu à les préparer.
-                </p>
-            </div>
-            <div class="col-md-6">
-                <img src={{ asset('img/salade-de-fruits.jpg') }} class="img-fluid ms-3" alt="Salade de Fruits">
-                <figcaption class="text-center">Salade de Fruits</figcaption>
-            </div>
-        </div>
-    </div>
-</section>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h2 class="text-center">
+							<span>A</span>
+							Propos De Nous
+						</h2>
+						<p class="text-left text-justify mt-4 me-5">
+							Nous sommes une équipe passionnée de gastronomie, composée de quatre personnes issues de quatre pays différents : le Cameroun, la Chine, le Brésil et l'Ile Maurice.<br><br>
+							Notre ambition est de faire découvrir les richesses culinaires de nos pays respectifs au monde entier.<br><br>
+							Nous avons créé ce site e-Commerce pour permettre à chacun de goûter des plats authentiques et savoureux, préparés selon des recettes traditionnelles transmises de génération en génération dans nos familles respectives.<br><br>
+							Nous mettons un point d'honneur à sélectionner des ingrédients de qualité, respectueux de l'environnement et des modes de production responsables.<br><br>
+							Que vous soyez amateur de cuisine épicée, sucrée ou salée, vous trouverez certainement votre bonheur parmi notre sélection de plats typiques du Cameroun, de la Chine, du Brésil et de l'Ile Maurice. Nous sommes fiers de pouvoir partager notre passion pour la gastronomie et nos cultures avec vous, et nous espérons que vous prendrez autant de plaisir à déguster nos plats que nous en avons eu à les préparer.
+						</p>
+						<p >Nos coordonnées sont les suivantes:</p>
+						<p class="text-primary">Numéro de téléphone: 0723366998</p>
+						<p class="text-primary">Adresse postale: 1 rue du bonheur, 75009 Paris</p>
+					</div>
+					<div class="col-md-6 d-flex flex-column">
+						<img src={{ asset('img/salade-de-fruits.jpg') }} class="img-fluid ms-3" alt="Salade de Fruits">
+						<figcaption class="text-center">Salade de Fruits</figcaption>
 
-
-	{% endblock %}
+						<!-- Tableau des horaires d'ouverture -->
+						<table class="table table-bordered mt-4 mb-4 ">
+							<thead>
+								<tr>
+									<th>Jours</th>
+									<th>Heures d'Ouverture</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Lundi - Vendredi</td>
+									<td>11h00 - 23h00</td>
+								</tr>
+								<tr>
+									<td>Samedi</td>
+									<td>12h00 - 00h00</td>
+								</tr>
+								<tr>
+									<td>Dimanche</td>
+									<td>Fermé</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+{% endblock %}
