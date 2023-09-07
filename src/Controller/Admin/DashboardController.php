@@ -52,3 +52,4 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Achat', 'fas fa-cart-shopping', Purchase::class);
     }
 }
+
