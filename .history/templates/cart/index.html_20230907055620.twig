@@ -4,19 +4,21 @@
 {% block title %}Mon Panier{% endblock %}
 
 {% block body %}
-<style>
-.fa-trash{
-    color: red;
-}
-</style>
-<section class="d-flex flex-column text-center align-items-center justify-content-center mt-5">
+
+{# dump pour afficher la cart ajout
+{{ dump(cart) }} #}
+
 <h1>Mon panier</h1>
+
+{# <p>Ajouter d'autre articles disponibles sur le site <a href="{{path('app_bresil')}}">Menu Brésil</a>--<a href="{{path('app_cameroun')}}">Menu Camaurun</a>--<a href="{{path('app_ile_maurice')}}">Menu Ile maurice</a>--<a href="{{path('app_chine')}}">Menu chine</a> </p> #}
+
+<main class="page-wrapper">
 {% if cart|length > 0 %}
 {% set total = null %}
 {% for item in cart %}
 {% set total = total + (item.product.price * item.quantity) %}
 {% set itemTotal = item.product.price * item.quantity %}
-<table class="table w-75">
+<table class="table">
   <thead>
     <tr>
       <th scope="col">Menu</th>
@@ -28,15 +30,12 @@
   </thead>
   <tbody>
     <tr>
-      <td>{{ item.product.category }}</td>
+      <th scope="row">{{ item.product.category }}</th>
       <td>{{item.product.title}}</td>
       <td>{{ item.product.price }}€</td>
-      {# Incrémentation + #}
-      <td><div class="d-flex flex-row justify-content-center"><a href="{{path('cart_add',{id:item.product.id})}}" class="btn btn-icon fs-xl" data-increment>+</a>
-      {# Input value #}
+      <td><div class="d-flex flex-row"><a href="{{path('cart_add',{id:item.product.id})}}" class="btn btn-icon fs-xl" data-increment>+</a>
       <input class="form-control w-25" type="number" value="{{item.quantity}}" readonly
         >
-        {# Incrémentation - #}
       <a href="{{ path('cart_decrease',{id:item.product.id}) }}" class="btn btn-icon fs-xl" data-decrement>-</a></div></td>
        <td>{{ (itemTotal) |number_format(2,',','.') }}€</td>
        <td><div class="nav justify-content-end mt-n5 mt-sm-n3">
@@ -48,10 +47,10 @@
     {% endfor %}
 
     {# Table Total Global #}
-    <tr class="justify-content-end">
-      <td><p class="fs-4 mb-2 ">Total: {{ (total )|number_format(2,',','.') }} €</p></td>
+    <tr>
+      <td><p class="fs-4 mb-2 justify-content-end">Total: {{ (total )|number_format(2,',','.') }} €</p></td>
       <td><a href="{{ path('app_payment', {'totalAmount': total}) }}"><button onclick="">
-							 Valider mon panier<i class="fa-solid fa-cart-shopping position-relative"></i>
+							<i class="fa-solid fa-cart-shopping position-relative"></i> Valider mon panier
 						</button></a></td>
     </tr>
   </tbody>
@@ -62,12 +61,12 @@
 <div class="container d-flex flex-colum justfy-content-center min-vh-100 py-5">
     <div class="text-center pt-4 mt-lg-2">
         <h1 class="display-5">Votre panier est vide</h1>
-        <p class="fs-lg pb-2 pb-md-0 mb-4 mb-md-5">commencez votre shopping dès maintenant!</p>
+        <p class="fs-lg pb-2 pb-md-0 mb-4 mb-md-5">commencez votre shoppong dès maintenant à travers nos articles</p>
         <a href="{{path('app_bresil')}}">Menu Brésil</a>--<a href="{{path('app_cameroun')}}">Menu Camaurun</a>--<a href="{{path('app_ile_maurice')}}">Menu Ile maurice</a>--<a href="{{path('app_chine')}}">Menu chine</a> Voir les produits</a>
     </div>
 </div>
 
 {% endif %}
 
-</section>
+</main>
 {% endblock %}

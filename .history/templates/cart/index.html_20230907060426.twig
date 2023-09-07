@@ -9,7 +9,7 @@
     color: red;
 }
 </style>
-<section class="d-flex flex-column text-center align-items-center justify-content-center mt-5">
+<section class="d-flex flex-column justify-content-center mt-5">
 <h1>Mon panier</h1>
 {% if cart|length > 0 %}
 {% set total = null %}
@@ -31,12 +31,9 @@
       <td>{{ item.product.category }}</td>
       <td>{{item.product.title}}</td>
       <td>{{ item.product.price }}€</td>
-      {# Incrémentation + #}
-      <td><div class="d-flex flex-row justify-content-center"><a href="{{path('cart_add',{id:item.product.id})}}" class="btn btn-icon fs-xl" data-increment>+</a>
-      {# Input value #}
+      <td><div class="d-flex flex-row"><a href="{{path('cart_add',{id:item.product.id})}}" class="btn btn-icon fs-xl" data-increment>+</a>
       <input class="form-control w-25" type="number" value="{{item.quantity}}" readonly
         >
-        {# Incrémentation - #}
       <a href="{{ path('cart_decrease',{id:item.product.id}) }}" class="btn btn-icon fs-xl" data-decrement>-</a></div></td>
        <td>{{ (itemTotal) |number_format(2,',','.') }}€</td>
        <td><div class="nav justify-content-end mt-n5 mt-sm-n3">
@@ -48,8 +45,8 @@
     {% endfor %}
 
     {# Table Total Global #}
-    <tr class="justify-content-end">
-      <td><p class="fs-4 mb-2 ">Total: {{ (total )|number_format(2,',','.') }} €</p></td>
+    <tr>
+      <td><p class="fs-4 mb-2 justify-content-end">Total: {{ (total )|number_format(2,',','.') }} €</p></td>
       <td><a href="{{ path('app_payment', {'totalAmount': total}) }}"><button onclick="">
 							 Valider mon panier<i class="fa-solid fa-cart-shopping position-relative"></i>
 						</button></a></td>

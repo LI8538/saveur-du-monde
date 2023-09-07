@@ -33,10 +33,9 @@
       <td>{{ item.product.price }}€</td>
       {# Incrémentation + #}
       <td><div class="d-flex flex-row justify-content-center"><a href="{{path('cart_add',{id:item.product.id})}}" class="btn btn-icon fs-xl" data-increment>+</a>
-      {# Input value #}
       <input class="form-control w-25" type="number" value="{{item.quantity}}" readonly
         >
-        {# Incrémentation - #}
+        {# Incrémentation + #}
       <a href="{{ path('cart_decrease',{id:item.product.id}) }}" class="btn btn-icon fs-xl" data-decrement>-</a></div></td>
        <td>{{ (itemTotal) |number_format(2,',','.') }}€</td>
        <td><div class="nav justify-content-end mt-n5 mt-sm-n3">
