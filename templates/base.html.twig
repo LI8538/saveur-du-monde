@@ -25,66 +25,159 @@
 	</head>
 	<body>
 		<style>
-			span {
-				color: #fb911f;
-				font-weigth: bold;
-			}
-			.trait {
-				background-color: #fb911f;
-				height: 2px;
-				width: 50%;
-				text-align: center;
-			}
-
-			button {
-			width: 8rem;
-			color: #ffff;
-			background: #fb911f;
-			border: none;
-			text-transform: uppercase;
-			letter-spacing: 2px;
-		}
-			.footer {
-				padding: 15px 40px;
-				border-top: 3px solid rgba(0, 0, 0, 0.1);
-				background: rgba(228, 222, 222);
-				text-align: center;
-				font-weight: 300;
-				font-style: italic;
-			}
-			.navbar {
-				border-top: 3px solid rgba(0, 0, 0, 0.1);
-				background: rgba(228, 222, 222);
-				font-weight: 300;
-				/* padding: 20px 40px; */
-			}
-			.containeur_produit {
-				width: 300px;
-  margin: 20px;
-  border: 20px solid #fff;
-  box-shadow: 20px 15px 35px rgba(0, 0, 0, 0.8);
+		span {
+    color: #fb911f;
+    font-weigth: bold;
 }
-.containeur_produit img{
-  position: relative;
+a{
+	 font-size: 
+7vw;
+}
+.trait {
+    background-color: #fb911f;
+    height: 2px;
+    width: 50%;
+    text-align: center;
+    margin-bottom: 100px;
+}
+h1{
+font-size:9vw;
+}
+h2{
+font-size:7vw;
+}
+h3{
+font-size:6vw;
+}
+h5{
+font-size:6vw;
+
+}
+p{
+font-size:5vw;
+}
+button {
+    width: 8rem;
+    color: #ffff;
+    background: #fb911f;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.footer {
+    padding-top: 15px;
+    border-top: 3px solid rgba(0, 0, 0, 0.1);
+    background: rgba(228, 222, 222);
+    text-align: center;
+    font-weight: 300;
+    font-style: italic;
+}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    border-top: 3px solid rgba(0, 0, 0, 0.1);
+    background: rgba(228, 222, 222);
+    font-weight: 200;
+}
+.navbar-nav{
+    font-size: 
+7vw;
+}
+.show{
+	text-align: center;
+}
+.navbar img {
+        width: 13vw;
+}
+.navbar-brand p{
+	font-size: 
+7vw;
+}
+.navbar-toggler-icon {
+width: 2.5em;
+height: 2.5em;
+}
+.containeur_produit {
+    width: 400px;
+    margin: 20px;
+    border: 20px solid #fff;
+    box-shadow: 20px 15px 35px rgba(0, 0, 0, 0.8);
+}
+.containeur_produit img {
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
-.containeur_produit button{
-	width: 3rem;
-	border-radius: 10%;
+.containeur_produit button {
+    width: 6rem;
+    border-radius: 10%;
 }
+
+@media screen and (min-width: 1300px) {
+.containeur_produit {
+    width: 300px;
+}
+.containeur_produit button {
+width: 3rem;
+}
+a{
+	 font-size: 
+1.5vw;
+}
+h1{
+font-size:5vw;
+}
+h2{
+font-size:4vw;
+}
+h3{
+font-size:3vw;
+}
+h5{
+font-size:2vw;
+
+}
+p{
+font-size:1.5vw;
+}
+li{
+	font-size: 1.5vw;
+}
+.navbar-nav{
+    font-size: 
+3vw;
+}
+.show{
+	text-align: center;
+}
+.navbar img {
+        width: 5vw;
+}
+.navbar-brand p{
+	font-size: 
+3vw;
+}
+.navbar-toggler-icon {
+width: 1.5em;
+height: 1.5em;
+}
+}	
 		</style>
 		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+
 			<div class="container-fluid">
-				<a href="{{ path('app_home') }}"><img src={{ asset('img/logo.png') }} width="100" alt="Logo Saveurs du Monde" class="me-5"></a>
-				<a class=" navbar-brand me-auto ml-5 text-center text-primary" href="{{ path('app_home') }}">Saveurs du Monde</a>
+				<a href="{{ path('app_home') }}"><img src={{ asset('img/logo.png') }} alt="Logo Saveurs du Monde" class="me-5"></a>
+
+				<a class=" navbar-brand me-auto ml-5 text-center text-primary" href="{{ path('app_home') }}"><p>Saveurs du Monde</p></a>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
+
 				<div class="collapse navbar-collapse" id="navbarNavDropdown">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item">
@@ -94,7 +187,9 @@
 							<a class="nav-link" href="{{ path('app_about') }}">A propos</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="{{ path('app_subscription') }}"><span>La Carte</span></a>
+							<a class="nav-link" href="{{ path('app_subscription') }}">
+								<span>La Carte</span>
+							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="{{ path('app_reservation_new') }}">Réservation</a>
@@ -127,9 +222,7 @@
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="{{ path('cart_index') }}">
-								<i class="fa-solid fa-cart-shopping position-relative">
-									
-								</i>
+								<i class="fa-solid fa-cart-shopping position-relative"></i>
 							</a>
 						</li>
 
@@ -157,10 +250,11 @@
 
 					</ul>
 				</div>
+
 			</nav>
 
 			{% block body %}{% endblock %}
-			<footer class="footer p-3 mt-5">
+			<footer class="footer mt-5 fixed-bottom">
 				<p>© copyright 2023
 					<span>
 						Li, Dalina, Leslie et Amanda</span>. Tous droits réservés.</p>
